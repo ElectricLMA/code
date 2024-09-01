@@ -6,226 +6,70 @@
   </head>
   <body>
     <p>
-	var ran = 0;
-
-async function startProgram() {
+	async function startProgram() {
+    let ran = 0;
     while (true) {
-        ran = getRandomInt(0, 999); // Generating a number between 0 and 999
+        ran = getRandomInt(0, 402);
 
-        if (ran >= 0 && ran < 10) {
-            await roll(0, 100, 3);
-        } else if (ran >= 10 && ran < 20) {
-            await roll(90, 100, 3);
-        } else if (ran >= 20 && ran < 30) {
-            await roll(180, 100, 3);
-        } else if (ran >= 30 && ran < 40) {
-            await roll(270, 100, 3);
-        } else if (ran >= 40 && ran < 50) {
-            await setMainLed({ r: 255, g: 0, b: 0 });
-        } else if (ran >= 50 && ran < 60) {
-            await setMainLed({ r: 0, g: 255, b: 0 });
-        } else if (ran >= 60 && ran < 70) {
-            await setMainLed({ r: 0, g: 0, b: 255 });
-        } else if (ran >= 70 && ran < 80) {
-            await setMainLed({ r: 255, g: 255, b: 0 });
-        } else if (ran >= 80 && ran < 90) {
-            await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 0, b: 255 }, 1);
-        } else if (ran >= 90 && ran < 100) {
-            await fade({ r: 0, g: 255, b: 0 }, { r: 255, g: 255, b: 0 }, 1);
-        } else if (ran >= 100 && ran < 110) {
-            await roll(45, 100, 2);
-        } else if (ran >= 110 && ran < 120) {
-            await roll(135, 100, 2);
-        } else if (ran >= 120 && ran < 130) {
-            await roll(225, 100, 2);
-        } else if (ran >= 130 && ran < 140) {
-            await roll(315, 100, 2);
-        } else if (ran >= 140 && ran < 150) {
-            await setMainLed({ r: 128, g: 0, b: 128 });
-        } else if (ran >= 150 && ran < 160) {
-            await setMainLed({ r: 0, g: 128, b: 128 });
-        } else if (ran >= 160 && ran < 170) {
-            await fade({ r: 128, g: 0, b: 128 }, { r: 0, g: 128, b: 128 }, 2);
-        } else if (ran >= 170 && ran < 180) {
-            await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 2);
-        } else if (ran >= 180 && ran < 190) {
-            await Sound.play(true);
-        } else if (ran >= 190 && ran < 200) {
-            await speak('Hello, World!');
-        } else if (ran >= 200 && ran < 210) {
-            await roll(0, 75, 4);
-        } else if (ran >= 210 && ran < 220) {
-            await roll(90, 75, 4);
-        } else if (ran >= 220 && ran < 230) {
-            await roll(180, 75, 4);
-        } else if (ran >= 230 && ran < 240) {
-            await roll(270, 75, 4);
-        } else if (ran >= 240 && ran < 250) {
-            await setMainLed({ r: 255, g: 105, b: 180 });
-        } else if (ran >= 250 && ran < 260) {
-            await setMainLed({ r: 0, g: 255, b: 255 });
-        } else if (ran >= 260 && ran < 270) {
-            await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 255 }, 3);
-        } else if (ran >= 270 && ran < 280) {
-            await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 255 }, 3);
-        } else if (ran >= 280 && ran < 290) {
-            await roll(45, 75, 3);
-        } else if (ran >= 290 && ran < 300) {
-            await roll(135, 75, 3);
-        } else if (ran >= 300 && ran < 310) {
-            await roll(225, 75, 3);
-        } else if (ran >= 310 && ran < 320) {
-            await roll(315, 75, 3);
-        } else if (ran >= 320 && ran < 330) {
-            await setMainLed({ r: 128, g: 128, b: 0 });
-        } else if (ran >= 330 && ran < 340) {
-            await setMainLed({ r: 128, g: 0, b: 128 });
-        } else if (ran >= 340 && ran < 350) {
-            await fade({ r: 128, g: 128, b: 0 }, { r: 128, g: 0, b: 128 }, 2);
-        } else if (ran >= 350 && ran < 360) {
-            await fade({ r: 255, g: 255, b: 0 }, { r: 0, g: 128, b: 128 }, 2);
-        } else if (ran >= 360 && ran < 370) {
-            await Sound.play(false);
-        } else if (ran >= 370 && ran < 380) {
-            await speak('Exploring!');
-        } else if (ran >= 380 && ran < 390) {
-            await roll(0, 50, 5);
-        } else if (ran >= 390 && ran < 400) {
-            await roll(90, 50, 5);
-        } else if (ran >= 400 && ran < 410) {
-            await roll(180, 50, 5);
-        } else if (ran >= 410 && ran < 420) {
-            await roll(270, 50, 5);
-        } else if (ran >= 420 && ran < 430) {
-            await setMainLed({ r: 255, g: 255, b: 255 });
-        } else if (ran >= 430 && ran < 440) {
-            await setMainLed({ r: 0, g: 0, b: 0 });
-        } else if (ran >= 440 && ran < 450) {
-            await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 1);
-        } else if (ran >= 450 && ran < 460) {
-            await fade({ r: 0, g: 0, b: 0 }, { r: 255, g: 255, b: 255 }, 1);
-        } else if (ran >= 460 && ran < 470) {
-            await roll(45, 100, 1);
-        } else if (ran >= 470 && ran < 480) {
-            await roll(135, 100, 1);
-        } else if (ran >= 480 && ran < 490) {
-            await roll(225, 100, 1);
-        } else if (ran >= 490 && ran < 500) {
-            await roll(315, 100, 1);
-        } else if (ran >= 500 && ran < 510) {
-            await setMainLed({ r: 255, g: 69, b: 0 });
-        } else if (ran >= 510 && ran < 520) {
-            await setMainLed({ r: 0, g: 191, b: 255 });
-        } else if (ran >= 520 && ran < 530) {
-            await fade({ r: 255, g: 69, b: 0 }, { r: 0, g: 191, b: 255 }, 2);
-        } else if (ran >= 530 && ran < 540) {
-            await fade({ r: 0, g: 255, b: 127 }, { r: 255, g: 0, b: 255 }, 2);
-        } else if (ran >= 540 && ran < 550) {
-            await roll(0, 25, 10);
-        } else if (ran >= 550 && ran < 560) {
-            await roll(90, 25, 10);
-        } else if (ran >= 560 && ran < 570) {
-            await roll(180, 25, 10);
-        } else if (ran >= 570 && ran < 580) {
-            await roll(270, 25, 10);
-        } else if (ran >= 580 && ran < 590) {
-            await setMainLed({ r: 100, g: 100, b: 100 });
-        } else if (ran >= 590 && ran < 600) {
-            await setMainLed({ r: 200, g: 200, b: 200 });
-        } else if (ran >= 600 && ran < 610) {
-            await fade({ r: 100, g: 100, b: 100 }, { r: 200, g: 200, b: 200 }, 3);
-        } else if (ran >= 610 && ran < 620) {
-            await fade({ r: 200, g: 200, b: 200 }, { r: 100, g: 100, b: 100 }, 3);
-        } else if (ran >= 620 && ran < 630) {
-            await Sound.play(true);
-        } else if (ran >= 630 && ran < 640) {
-            await speak('Ready for action!');
-        } else if (ran >= 640 && ran < 650) {
-            await roll(0, 50, 4);
-        } else if (ran >= 650 && ran < 660) {
-            await roll(90, 50, 4);
-        } else if (ran >= 660 && ran < 670) {
-            await roll(180, 50, 4);
-        } else if (ran >= 670 && ran < 680) {
-            await roll(270, 50, 4);
-        } else if (ran >= 680 && ran < 690) {
-            await setMainLed({ r: 75, g: 0, b: 130 });
-        } else if (ran >= 690 && ran < 700) {
-            await setMainLed({ r: 0, g: 255, b: 127 });
-        } else if (ran >= 700 && ran < 710) {
-            await fade({ r: 75, g: 0, b: 130 }, { r: 0, g: 255, b: 127 }, 2);
-        } else if (ran >= 710 && ran < 720) {
-            await fade({ r: 0, g: 255, b: 127 }, { r: 75, g: 0, b: 130 }, 2);
-        } else if (ran >= 720 && ran < 730) {
-            await roll(45, 50, 6);
-        } else if (ran >= 730 && ran < 740) {
-            await roll(135, 50, 6);
-        } else if (ran >= 740 && ran < 750) {
-            await roll(225, 50, 6);
-        } else if (ran >= 750 && ran < 760) {
-            await roll(315, 50, 6);
-        } else if (ran >= 760 && ran < 770) {
-            await setMainLed({ r: 0, g: 128, b: 0 });
-        } else if (ran >= 770 && ran < 780) {
-            await setMainLed({ r: 128, g: 0, b: 128 });
-        } else if (ran >= 780 && ran < 790) {
-            await fade({ r: 0, g: 128, b: 0 }, { r: 128, g: 0, b: 128 }, 1);
-        } else if (ran >= 790 && ran < 800) {
-            await fade({ r: 128, g: 0, b: 128 }, { r: 0, g: 128, b: 0 }, 1);
-        } else if (ran >= 800 && ran < 810) {
-            await roll(0, 100, 2);
-        } else if (ran >= 810 && ran < 820) {
-            await roll(90, 100, 2);
-        } else if (ran >= 820 && ran < 830) {
-            await roll(180, 100, 2);
-        } else if (ran >= 830 && ran < 840) {
-            await roll(270, 100, 2);
-        } else if (ran >= 840 && ran < 850) {
-            await setMainLed({ r: 255, g: 0, b: 255 });
-        } else if (ran >= 850 && ran < 860) {
-            await setMainLed({ r: 0, g: 255, b: 255 });
-        } else if (ran >= 860 && ran < 870) {
-            await fade({ r: 255, g: 0, b: 255 }, { r: 0, g: 255, b: 255 }, 3);
-        } else if (ran >= 870 && ran < 880) {
-            await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 0, b: 255 }, 3);
-        } else if (ran >= 880 && ran < 890) {
-            await Sound.play(false);
-        } else if (ran >= 890 && ran < 900) {
-            await speak('Doing great!');
-        } else if (ran >= 900 && ran < 910) {
-            await roll(0, 25, 8);
-        } else if (ran >= 910 && ran < 920) {
-            await roll(90, 25, 8);
-        } else if (ran >= 920 && ran < 930) {
-            await roll(180, 25, 8);
-        } else if (ran >= 930 && ran < 940) {
-            await roll(270, 25, 8);
-        } else if (ran >= 940 && ran < 950) {
-            await setMainLed({ r: 0, g: 255, b: 0 });
-        } else if (ran >= 950 && ran < 960) {
-            await setMainLed({ r: 255, g: 165, b: 0 });
-        } else if (ran >= 960 && ran < 970) {
-            await fade({ r: 0, g: 255, b: 0 }, { r: 255, g: 165, b: 0 }, 2);
-        } else if (ran >= 970 && ran < 980) {
-            await fade({ r: 255, g: 165, b: 0 }, { r: 0, g: 255, b: 0 }, 2);
-        } else if (ran >= 980 && ran < 990) {
-            await roll(45, 100, 6);
-        } else if (ran >= 990 && ran < 1000) {
-            await roll(135, 100, 6);
-        }
-
-        await delay(0.025);
-    }
+        if (ran >= 0 && ran < 360) {
+            // Rolling actions (360 unique actions for rolling in different degrees and speeds)
+            if (ran >= 0 && ran < 90) { await roll(0, 100, 3); } // Roll 0 degrees with speed 100 for 3s
+            if (ran >= 90 && ran < 180) { await roll(90, 100, 3); } // Roll 90 degrees with speed 100 for 3s
+            if (ran >= 180 && ran < 270) { await roll(180, 100, 3); } // Roll 180 degrees with speed 100 for 3s
+            if (ran >= 270 && ran < 360) { await roll(270, 100, 3); } // Roll 270 degrees with speed 100 for 3s
+        } else if (ran >= 360 && ran < 400) {
+            // 100 unique actions for fade transitions
+            if (ran === 360) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 0 }, 2); } // Red to Green
+            if (ran === 361) { await fade({ r: 0, g: 255, b: 0 }, { r: 0, g: 0, b: 255 }, 2); } // Green to Blue
+            if (ran === 362) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Blue to Magenta
+            if (ran === 363) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Magenta to Yellow
+            if (ran === 364) { await fade({ r: 255, g: 255, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Yellow to Cyan
+            if (ran === 365) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Cyan to White
+            if (ran === 366) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 2); } // White to Black
+            if (ran === 367) { await fade({ r: 0, g: 0, b: 0 }, { r: 255, g: 255, b: 255 }, 2); } // Black to White
+            if (ran === 368) { await fade({ r: 255, g: 0, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Red to Pink
+            if (ran === 369) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 0 }, 2); } // Pink to Green
+            if (ran === 370) { await fade({ r: 255, g: 0, b: 255 }, { r: 0, g: 255, b: 255 }, 2); } // Magenta to Aqua
+            if (ran === 371) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Aqua to Yellow
+            if (ran === 372) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 373) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 0, b: 255 }, 2); } // Pink to Blue
+            if (ran === 374) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 0 }, 2); } // Blue to Red
+            if (ran === 375) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Red to Aqua
+            if (ran === 376) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Aqua to White
+            if (ran === 377) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 255, b: 0 }, 2); } // White to Green
+            if (ran === 378) { await fade({ r: 0, g: 255, b: 0 }, { r: 255, g: 255, b: 0 }, 2); } // Green to Yellow
+            if (ran === 379) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 380) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 255 }, 2); } // Pink to Aqua
+            if (ran === 381) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Aqua to Magenta
+            if (ran === 382) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 105, b: 180 }, 2); } // Magenta to Pink
+            if (ran === 383) { await fade({ r: 255, g: 105, b: 180 }, { r: 255, g: 0, b: 0 }, 2); } // Pink to Red
+            if (ran === 384) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 0 }, 2); } // Red to Green
+            if (ran === 385) { await fade({ r: 0, g: 255, b: 0 }, { r: 0, g: 0, b: 255 }, 2); } // Green to Blue
+            if (ran === 386) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Blue to Magenta
+            if (ran === 387) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Magenta to Yellow
+            if (ran === 388) { await fade({ r: 255, g: 255, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Yellow to Cyan
+            if (ran === 389) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Cyan to White
+            if (ran === 390) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 2); } // White to Black
+            if (ran === 391) { await fade({ r: 0, g: 0, b: 0 }, { r: 255, g: 255, b: 255 }, 2); } // Black to White
+            if (ran === 392) { await fade({ r: 255, g: 0, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Red to Pink
+            if (ran === 393) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 0 }, 2); } // Pink to Green
+            if (ran === 394) { await fade({ r: 255, g: 0, b: 255 }, { r: 0, g: 255, b: 255 }, 2); } // Magenta to Aqua
+            if (ran === 395) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Aqua to Yellow
+            if (ran === 396) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 397) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 0, b: 255 }, 2); } // Pink to Blue
+            if (ran === 398) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 0 }, 2); } // Blue to Red
+            if (ran === 399) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Red to Aqua
+            if (ran === 400) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Aqua to White
+			if (ran === 401) { await Sound.play(true); }
+			if (ran === 402) { await Sound.EightBit.play(true); }
+		}
+		
+		stopAndRestart();
+		
+async function stopAndRestart() {
+    await delay(0.5);
+    startProgram();
 }
-
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms * 1000));
-}
-
     </p>
   </body>
 </html>
