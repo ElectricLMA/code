@@ -1,0 +1,64 @@
+async function startProgram() {
+    let ran = 0;
+    while (true) {
+        ran = getRandomInt(0, 402);
+
+        if (ran >= 0 && ran < 360) {
+            // Rolling actions (360 unique actions for rolling in different degrees and speeds)
+            if (ran >= 0 && ran < 90) { await roll(0, 100, 3); } // Roll 0 degrees with speed 100 for 3s
+            if (ran >= 90 && ran < 180) { await roll(90, 100, 3); } // Roll 90 degrees with speed 100 for 3s
+            if (ran >= 180 && ran < 270) { await roll(180, 100, 3); } // Roll 180 degrees with speed 100 for 3s
+            if (ran >= 270 && ran < 360) { await roll(270, 100, 3); } // Roll 270 degrees with speed 100 for 3s
+        } else if (ran >= 360 && ran < 400) {
+            // 100 unique actions for fade transitions
+            if (ran === 360) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 0 }, 2); } // Red to Green
+            if (ran === 361) { await fade({ r: 0, g: 255, b: 0 }, { r: 0, g: 0, b: 255 }, 2); } // Green to Blue
+            if (ran === 362) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Blue to Magenta
+            if (ran === 363) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Magenta to Yellow
+            if (ran === 364) { await fade({ r: 255, g: 255, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Yellow to Cyan
+            if (ran === 365) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Cyan to White
+            if (ran === 366) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 2); } // White to Black
+            if (ran === 367) { await fade({ r: 0, g: 0, b: 0 }, { r: 255, g: 255, b: 255 }, 2); } // Black to White
+            if (ran === 368) { await fade({ r: 255, g: 0, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Red to Pink
+            if (ran === 369) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 0 }, 2); } // Pink to Green
+            if (ran === 370) { await fade({ r: 255, g: 0, b: 255 }, { r: 0, g: 255, b: 255 }, 2); } // Magenta to Aqua
+            if (ran === 371) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Aqua to Yellow
+            if (ran === 372) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 373) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 0, b: 255 }, 2); } // Pink to Blue
+            if (ran === 374) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 0 }, 2); } // Blue to Red
+            if (ran === 375) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Red to Aqua
+            if (ran === 376) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Aqua to White
+            if (ran === 377) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 255, b: 0 }, 2); } // White to Green
+            if (ran === 378) { await fade({ r: 0, g: 255, b: 0 }, { r: 255, g: 255, b: 0 }, 2); } // Green to Yellow
+            if (ran === 379) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 380) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 255 }, 2); } // Pink to Aqua
+            if (ran === 381) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Aqua to Magenta
+            if (ran === 382) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 105, b: 180 }, 2); } // Magenta to Pink
+            if (ran === 383) { await fade({ r: 255, g: 105, b: 180 }, { r: 255, g: 0, b: 0 }, 2); } // Pink to Red
+            if (ran === 384) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 0 }, 2); } // Red to Green
+            if (ran === 385) { await fade({ r: 0, g: 255, b: 0 }, { r: 0, g: 0, b: 255 }, 2); } // Green to Blue
+            if (ran === 386) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 255 }, 2); } // Blue to Magenta
+            if (ran === 387) { await fade({ r: 255, g: 0, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Magenta to Yellow
+            if (ran === 388) { await fade({ r: 255, g: 255, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Yellow to Cyan
+            if (ran === 389) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Cyan to White
+            if (ran === 390) { await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 2); } // White to Black
+            if (ran === 391) { await fade({ r: 0, g: 0, b: 0 }, { r: 255, g: 255, b: 255 }, 2); } // Black to White
+            if (ran === 392) { await fade({ r: 255, g: 0, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Red to Pink
+            if (ran === 393) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 255, b: 0 }, 2); } // Pink to Green
+            if (ran === 394) { await fade({ r: 255, g: 0, b: 255 }, { r: 0, g: 255, b: 255 }, 2); } // Magenta to Aqua
+            if (ran === 395) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 0 }, 2); } // Aqua to Yellow
+            if (ran === 396) { await fade({ r: 255, g: 255, b: 0 }, { r: 255, g: 105, b: 180 }, 2); } // Yellow to Pink
+            if (ran === 397) { await fade({ r: 255, g: 105, b: 180 }, { r: 0, g: 0, b: 255 }, 2); } // Pink to Blue
+            if (ran === 398) { await fade({ r: 0, g: 0, b: 255 }, { r: 255, g: 0, b: 0 }, 2); } // Blue to Red
+            if (ran === 399) { await fade({ r: 255, g: 0, b: 0 }, { r: 0, g: 255, b: 255 }, 2); } // Red to Aqua
+            if (ran === 400) { await fade({ r: 0, g: 255, b: 255 }, { r: 255, g: 255, b: 255 }, 2); } // Aqua to White
+			if (ran === 401) { await Sound.play(true); }
+			if (ran === 402) { await Sound.EightBit.play(true); }
+		}
+		
+		stopAndRestart();
+		
+async function stopAndRestart() {
+    await delay(0.5);
+    startProgram();
+}
