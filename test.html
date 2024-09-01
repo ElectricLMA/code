@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <title>
+      Code
+    </title>
+  </head>
+  <body>
+    <p>
+      var ran = 0;
+
+async function startProgram() {
+    while (true) {
+        ran = getRandomInt(0, 999); // Generating a number between 0 and 999
+
+        if (ran < 360) {
+            // 360 unique actions for rolling at every degree with speed 100 for 3s
+            const degree = ran; // Degrees from 0 to 359
+            await roll(degree, 100, 3);
+        } else if (ran >= 360 && ran < 370) {
+            // 10 unique actions for setting different LED colors
+            const colors = [
+                { r: 255, g: 0, b: 0 },    // Red
+                { r: 0, g: 255, b: 0 },    // Green
+                { r: 0, g: 0, b: 255 },    // Blue
+                { r: 255, g: 255, b: 0 },  // Yellow
+                { r: 0, g: 255, b: 255 },  // Cyan
+                { r: 255, g: 0, b: 255 },  // Magenta
+                { r: 255, g: 255, b: 255 },// White
+                { r: 128, g: 128, b: 128 },// Gray
+                { r: 255, g: 105, b: 180 },// Pink
+                { r: 0, g: 255, b: 0 }     // Bright Green
+            ];
+            await setMainLed(colors[ran - 360]);
+        } else if (ran >= 370 && ran < 380) {
+            // 10 unique actions for different fade effects
+            const fadeEffects = [
+                { start: { r: 255, g: 0, b: 0 }, end: { r: 0, g: 255, b: 0 } }, // Red to Green
+                { start: { r: 0, g: 255, b: 0 }, end: { r: 0, g: 0, b: 255 } }, // Green to Blue
+                { start: { r: 0, g: 0, b: 255 }, end: { r: 255, g: 0, b: 255 } }, // Blue to Magenta
+                { start: { r: 255, g: 0, b: 255 }, end: { r: 255, g: 255, b: 0 } }, // Magenta to Yellow
+                { start: { r: 255, g: 255, b: 0 }, end: { r: 0, g: 255, b: 255 } }, // Yellow to Cyan
+                { start: { r: 0, g: 255, b: 255 }, end: { r: 255, g: 255, b: 255 } }, // Cyan to White
+                { start: { r: 255, g: 255, b: 255 }, end: { r: 0, g: 0, b: 0 } }, // White to Black
+                { start: { r: 0, g: 0, b: 0 }, end: { r: 255, g: 255, b: 255 } }, // Black to White
+                { start: { r: 255, g: 0, b: 0 }, end: { r: 255, g: 105, b: 180 } }, // Red to Pink
+                { start: { r: 255, g: 105, b: 180 }, end: { r: 0, g: 255, b: 0 } } // Pink to Green
+            ];
+            await fade(fadeEffects[ran - 370].start, fadeEffects[ran - 370].end, 2);
+        } else if (ran >= 380 && ran < 390) {
+            // 10 unique actions for different sound settings
+            if (ran % 2 === 0) {
+                await Sound.play(true); // Play sound
+            } else {
+                await Sound.play(false); // Stop sound
+            }
+        } else if (ran >= 390 && ran < 400) {
+            // 10 unique actions for speaking different phrases
+            const phrases = [
+                'Hello!',
+                'How are you?',
+                'I am a robot!',
+                'Beep Boop!',
+                'I am learning.',
+                'Nice to meet you!',
+                'Goodbye!',
+                'Have a nice day!',
+                'Let\'s play!',
+                'Thank you!'
+            ];
+            await speak(phrases[ran - 390]);
+        } else if (ran >= 400 && ran < 500) {
+            // 100 unique actions for rolling at every 10 degrees with speed 75 for 5s
+            const degree = (ran - 400) * 10; // Degrees from 0 to 990 in steps of 10
+            await roll(degree, 75, 5);
+        } else if (ran >= 500 && ran < 600) {
+            // 100 unique actions for rolling at every 10 degrees with speed 50 for 6s
+            const degree = (ran - 500) * 10; // Degrees from 0 to 990 in steps of 10
+            await roll(degree, 50, 6);
+        } else if (ran >= 600 && ran < 700) {
+            // 100 unique actions for rolling at every 15 degrees with speed 100 for 2s
+            const degree = (ran - 600) * 15; // Degrees from 0 to 990 in steps of 15
+            await roll(degree, 100, 2);
+        } else if (ran >= 700 && ran < 800) {
+            // 100 unique actions for rolling at every 5 degrees with speed 25 for 10s
+            const degree = (ran - 700) * 5; // Degrees from 0 to 495 in steps of 5
+            await roll(degree, 25, 10);
+        } else if (ran >= 800 && ran < 900) {
+            // 100 unique actions for rolling at every 20 degrees with speed 50 for 3s
+            const degree = (ran - 800) * 20; // Degrees from 0 to 1980 in steps of 20
+            await roll(degree, 50, 3);
+        } else if (ran >= 900 && ran < 1000) {
+            // 100 unique actions for setting various LED colors
+            const colors = [
+                { r: 255, g: 0, b: 0 },    // Red
+                { r: 0, g: 255, b: 0 },    // Green
+                { r: 0, g: 0, b: 255 },    // Blue
+                { r: 255, g: 255, b: 0 },  // Yellow
+                { r: 0, g: 255, b: 255 },  // Cyan
+                { r: 255, g: 0, b: 255 },  // Magenta
+                { r: 255, g: 255, b: 255 },// White
+                { r: 128, g: 128, b: 128 },// Gray
+                { r: 255, g: 105, b: 180 },// Pink
+                { r: 0, g: 255, b: 0 },    // Bright Green
+                { r: 0, g: 128, b: 128 },  // Teal
+                { r: 255, g: 69, b: 0 },   // Red-Orange
+                { r: 0, g: 255, b: 255 },  // Aqua
+                { r: 128, g: 0, b: 128 },  // Purple
+                { r: 255, g: 20, b: 147 }, // Deep Pink
+                { r: 255, g: 99, b: 71 },  // Tomato
+                { r: 255, g: 215, b: 0 },  // Gold
+                { r: 135, g: 206, b: 250 },// Sky Blue
+                { r: 0, g: 255, b: 255 },  // Cyan
+                { r: 0, g: 0, b: 139 },    // Dark Blue
+                { r: 255, g: 0, b: 0 },    // Red
+                { r: 255, g: 228, b: 225 },// Misty Rose
+                { r: 135, g: 206, b: 235 },// Light Sky Blue
+                { r: 255, g: 99, b: 71 },  // Tomato
+                { r: 0, g: 191, b: 255 },  // Deep Sky Blue
+                { r: 255, g: 140, b: 0 },  // Dark Orange
+                { r: 240, g: 128, b: 128 },// Light Coral
+                { r: 224, g: 255, b: 255 },// Light Cyan
+                { r: 255, g: 0, b: 255 },  // Magenta
+                { r: 250, g: 235, b: 215 },// Antique White
+                { r: 153, g: 50, b: 204 }, // Dark Orchid
+                { r: 255, g: 105, b: 180 },// Hot Pink
+                { r: 250, g: 240, b: 230 },// Floral White
+                { r: 50, g: 205, b: 50 },  // Lime Green
+                { r: 255, g: 69, b: 0 },   // Red-Orange
+                { r: 186, g: 85, b: 211 }, // Medium Orchid
+                { r: 216, g: 191, b: 216 },// Thistle
+                { r: 219, g: 112, b: 147 },// Pale Violet Red
+                { r: 255, g: 228, b: 225 },// Misty Rose
+                { r: 211, g: 211, b: 211 } // Light Gray
+            ];
+            await setMainLed(colors[ran - 900]);
+        }
+
+        await delay(0.025); // Delay to avoid rapid execution
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms * 1000));
+}
+
+    </p>
+  </body>
+</html>
